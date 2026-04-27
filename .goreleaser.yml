@@ -1,0 +1,14 @@
+version: 2
+
+builds:
+  - skip: true
+
+archives:
+  - format: tar.gz
+
+release:
+  mode: replace
+
+changelog:
+  use: github
+
