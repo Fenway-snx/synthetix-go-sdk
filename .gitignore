@@ -1,0 +1,21 @@
+# Binaries / build artefacts
+*.test
+*.out
+*.exe
+*.prof
+*.cov
+
+# Editor / OS detritus
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Go module cache scratch
+/vendor/
