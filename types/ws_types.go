@@ -53,7 +53,7 @@ type WSMessage struct {
 	PrevSeq   uint64 `json:"prevSeq,omitempty"`
 	Meseq     uint64 `json:"meseq,omitempty"`
 	PrevMeseq uint64 `json:"prevMeseq,omitempty"`
-	Met       int64  `json:"met,omitempty"`
+	Met       int64  `json:"met,omitempty,string"` // Matching-engine event time (Unix µs); wire format is JSON string
 	Checksum  string `json:"checksum,omitempty"`
 
 	// NeedsResync is present on account-stream payloads after an

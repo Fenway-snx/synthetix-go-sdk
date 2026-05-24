@@ -25,3 +25,22 @@ func TestMaintenanceMarginTierAcceptsNumericMaxLeverage(t *testing.T) {
 		t.Fatalf("tier fields not populated: %+v", tier)
 	}
 }
+
+func TestWSMessageMetAcceptsString(t *testing.T) {
+	var msg WSMessage
+	err := json.Unmarshal([]byte(`{"channel":"subAccountUpdate","met":"1716566400123"}`), &msg)
+	if err != nil {
+		t.Fatalf("unmarshal string met: %v", err)
+	}
+	if msg.Met != 1716566400123 {
+		t.Fatalf("Met = %d, want 1716566400123", msg.Met)
+	}
+
+	out, err := json.Marshal(msg)
+	if err != nil {
+		t.Fatalf("marshal: %v", err)
+	}
+	if string(out) != `{"channel":"subAccountUpdate","met":"1716566400123"}` {
+		t.Fatalf("marshal = %s", out)
+	}
+}
